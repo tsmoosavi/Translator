@@ -24,7 +24,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="30dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/circle"
+                android:layout_weight="9"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="تعداد کلمات موجود در دیکشنری:"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_weight="0.8"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
   
 
 </androidx.constraintlayout.widget.ConstraintLayout>
