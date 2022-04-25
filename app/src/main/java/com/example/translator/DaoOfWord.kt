@@ -1,5 +1,6 @@
 package com.example.translator
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -18,4 +19,7 @@ interface DaoOfWord {
 
     @Query ("SELECT * FROM WordEntity WHERE meaningOfWord = :word")
     fun getMeaningOfWord(word: String): WordEntity
+
+    @Query("SELECT COUNT(id) FROM WordEntity")
+    fun countNumber():LiveData<Int>
 }
