@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.translator.databinding.FragmentHomeBinding
 
 
@@ -26,5 +27,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.fab.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_addWordFragment)
+        }
     }
 }

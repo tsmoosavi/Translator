@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="تعداد کلمات موجود در دیکشنری:"
+                android:text="@string/numberOfAllWords"
                 android:textSize="18sp"
                 android:textColor="@color/black"
                 android:layout_weight="90"
