@@ -13,4 +13,7 @@ class Repository {
     fun getNumber():LiveData<Int>{
        return db!!.wordDao().countNumber()
     }
+    fun insertWord(word:WordEntity){
+        db!!.wordDao().addWord(word)
+    }
 }
