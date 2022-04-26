@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeFragment_to_addWordFragment"
             app:destination="@id/addWordFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_showAndEditFragment"
+            app:destination="@id/showAndEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/addWordFragment"
@@ -19,5 +22,13 @@
         <action
             android:id="@+id/action_addWordFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showAndEditFragment"
+        android:name="com.example.translator.ShowAndEditFragment"
+        android:label="ShowAndEditFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>

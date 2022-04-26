@@ -19,4 +19,7 @@ class Repository {
     fun findWord(word:String):WordEntity{
         return db!!.wordDao().getWord(word)
     }
+    fun getId(id:Int):WordEntity{
+        return db!!.wordDao().findId(id)
+    }
 }
