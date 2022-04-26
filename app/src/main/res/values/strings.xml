@@ -12,4 +12,6 @@
     <string name="register">ثبت</string>
     <string name="delete">حذف</string>
     <string name="edit">ویرایش</string>
+    <string name="editWord">ویرایش کلمه:</string>
+    <string name="registerEdition">ثبت تغییرات</string>
 </resources>
