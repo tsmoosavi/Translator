@@ -5,23 +5,122 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddWordFragment"
+    android:orientation="vertical"
     android:padding="20dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="100">
+        android:weightSum="100"
+        android:layout_marginTop="30dp">
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/word"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="80"/>
+            android:layout_weight="30"
+            android:background="@drawable/grey"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/word"
+            android:textSize="18sp"
             android:gravity="center"
-            android:layout_weight="20"/>
+            android:layout_weight="70"
+            android:background="@drawable/pink"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="30dp">
+        <EditText
+            android:id="@+id/meaningOfWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:background="@drawable/grey"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/meaningOfWord"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_weight="70"
+            android:background="@drawable/pink"/>
+    </LinearLayout>
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="100"
+    android:layout_marginTop="30dp">
+    <EditText
+        android:id="@+id/example"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="30"
+        android:background="@drawable/grey"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/example"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_weight="70"
+        android:background="@drawable/pink"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="30dp">
+        <EditText
+            android:id="@+id/synonym"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:background="@drawable/grey"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/synonym"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_weight="70"
+            android:background="@drawable/pink"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="30dp">
+        <EditText
+            android:id="@+id/url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:background="@drawable/grey"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/urlWikiPedia"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_weight="70"
+            android:background="@drawable/pink"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:background="@drawable/rectangle"/>
 
 
 

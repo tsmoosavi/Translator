@@ -1,4 +1,4 @@
-package com.example.translator
+package com.example.translator.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

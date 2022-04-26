@@ -1,4 +1,4 @@
-package com.example.translator
+package com.example.translator.database
 
 import android.content.Context
 import androidx.room.Database

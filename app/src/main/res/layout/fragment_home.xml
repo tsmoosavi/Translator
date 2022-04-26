@@ -45,7 +45,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/numberOfAllWords"
                 android:textSize="18sp"
-                android:textColor="@color/black"
                 android:layout_weight="90"
                 />
 
@@ -53,7 +52,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="کلمه مورد نظر را وارد کنید."
+            android:hint="@string/hintEnterWord"
             android:gravity="center"/>
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"

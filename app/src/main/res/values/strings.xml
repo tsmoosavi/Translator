@@ -4,4 +4,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="word">کلمه:</string>
     <string name="numberOfAllWords">تعداد کلمات موجود در دیکشنری:</string>
+    <string name="hintEnterWord">کلمه مورد نظر را وارد کنید.</string>
+    <string name="meaningOfWord">معنی کلمه:</string>
+    <string name="example">مثال:</string>
+    <string name="synonym">مترادف:</string>
+    <string name="urlWikiPedia">لینک ویکی پدیا:</string>
+    <string name="register">ثبت</string>
 </resources>

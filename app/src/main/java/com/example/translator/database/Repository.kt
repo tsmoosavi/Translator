@@ -1,6 +1,7 @@
-package com.example.translator
+package com.example.translator.database
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 
 class Repository {
     var db: WordDataBase? = null
@@ -8,5 +9,8 @@ class Repository {
     fun startDb(context: Context){
         db = WordDataBase.getAppDataBase(context)
         wordDao =db?.wordDao()
+    }
+    fun getNumber():LiveData<Int>{
+       return db!!.wordDao().countNumber()
     }
 }
