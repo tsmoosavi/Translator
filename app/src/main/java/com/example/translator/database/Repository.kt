@@ -22,4 +22,7 @@ class Repository {
     fun findMeaningWord(word:String):WordEntity{
         return db!!.wordDao().getMeaningOfWord(word)
     }
+    fun result(word:String):WordEntity{
+        return db!!.wordDao().getResult(word)
+    }
 }

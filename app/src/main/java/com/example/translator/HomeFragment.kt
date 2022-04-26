@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -33,6 +34,35 @@ class HomeFragment : Fragment() {
         binding.fab.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_addWordFragment)
         }
+        binding.searchButton.setOnClickListener {
+            showWord()
+        }
+    }
+
+    private fun showWord() {
+        if (vm.resultExist(binding.searchBox.text.toString())){
+            Toast.makeText(context, vm.result(binding.searchBox.text.toString()).example, Toast.LENGTH_SHORT).show()
+        }
+        else{
+            Toast.makeText(context, "there is no such a word", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+
+//        if(vm.find(binding.searchBox.text.toString()) == null){
+//            Toast.makeText(context, "there is no such a word", Toast.LENGTH_SHORT).show()
+//        }else{
+//        vm.find(binding.searchBox.text.toString())
+//        Toast.makeText(context,  vm.find(binding.searchBox.text.toString()).example, Toast.LENGTH_SHORT).show()
+//        }
+
+//        if (vm.checkWordExistence(binding.searchBox.text.toString())){
+//            vm.findWord(binding.searchBox.text.toString())
+//            Toast.makeText(context,  vm.findWord(binding.searchBox.text.toString()).example, Toast.LENGTH_SHORT).show()
+//        }else{
+//            Toast.makeText(context, "there is no such a word", Toast.LENGTH_SHORT).show()
+//        }
     }
 
     private fun initView() {
