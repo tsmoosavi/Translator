@@ -33,9 +33,9 @@
             android:padding="30dp"
             android:weightSum="100">
             <TextView
+                android:id="@+id/number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="32"
                 android:textSize="18sp"
                 android:gravity="center"
                 android:background="@drawable/circle"
@@ -50,14 +50,19 @@
 
         </LinearLayout>
         <EditText
+            android:id="@+id/searchBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:hint="@string/hintEnterWord"
+            android:background="@drawable/grey"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
             android:gravity="center"/>
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text = "جستجو"
+            android:layout_marginTop="20dp"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:background="@drawable/rectangle"/>
