@@ -10,4 +10,6 @@
     <string name="synonym">مترادف:</string>
     <string name="urlWikiPedia">لینک ویکی پدیا:</string>
     <string name="register">ثبت</string>
+    <string name="delete">حذف</string>
+    <string name="edit">ویرایش</string>
 </resources>
