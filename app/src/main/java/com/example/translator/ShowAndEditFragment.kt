@@ -10,8 +10,6 @@ import com.example.translator.databinding.FragmentShowAndEditBinding
 
 class ShowAndEditFragment : Fragment() {
      lateinit var binding: FragmentShowAndEditBinding
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
