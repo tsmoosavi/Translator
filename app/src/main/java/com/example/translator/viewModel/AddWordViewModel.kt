@@ -1,4 +1,4 @@
-package com.example.translator
+package com.example.translator.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

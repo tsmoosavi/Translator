@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.translator.database.WordEntity
 import com.example.translator.databinding.FragmentAddWordBinding
+import com.example.translator.viewModel.AddWordViewModel
 
 class AddWordFragment : Fragment() {
     lateinit var binding: FragmentAddWordBinding
