@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.example.translator.database.Repository
-import com.example.translator.database.WordEntity
 
 class HomeViewModel(app:Application):AndroidViewModel(app) {
    var wordCountLD: LiveData<Int>
@@ -14,4 +13,19 @@ class HomeViewModel(app:Application):AndroidViewModel(app) {
         repo.startDb(app.applicationContext)
         wordCountLD = repo.getNumber()
     }
+
+    fun checkWordExistence(word:String):Boolean{
+        if (repo.findWord(word) == null){
+         return false
+        }
+        if (repo.findMeaningWord(word) == null){
+            return false
+        }
+        return true
+    }
+    fun findWord(){
+
+    }
+
+
 }

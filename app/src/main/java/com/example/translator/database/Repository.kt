@@ -16,4 +16,10 @@ class Repository {
     fun insertWord(word:WordEntity){
         db!!.wordDao().addWord(word)
     }
+    fun findWord(word:String):WordEntity{
+        return db!!.wordDao().getWord(word)
+    }
+    fun findMeaningWord(word:String):WordEntity{
+        return db!!.wordDao().getMeaningOfWord(word)
+    }
 }
