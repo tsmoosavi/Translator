@@ -1,5 +1,6 @@
 package com.example.translator
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.translator.databinding.FragmentHomeBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class HomeFragment : Fragment() {
@@ -40,11 +42,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun showWord() {
-        if (vm.resultExist(binding.searchBox.text.toString())){
-            Toast.makeText(context, vm.result(binding.searchBox.text.toString()).example, Toast.LENGTH_SHORT).show()
+        if (vm.checkWordExistence(binding.searchBox.text.toString())){
+            Toast.makeText(context, vm.findWord(binding.searchBox.text.toString()).id.toString(), Toast.LENGTH_SHORT).show()
         }
         else{
-            Toast.makeText(context, "there is no such a word", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context, "there is no such a word", Toast.LENGTH_SHORT).show()
+            wordFind(requireContext())
         }
 
 
@@ -63,6 +66,13 @@ class HomeFragment : Fragment() {
 //        }else{
 //            Toast.makeText(context, "there is no such a word", Toast.LENGTH_SHORT).show()
 //        }
+    }
+
+    fun wordFind(context: Context){
+        MaterialAlertDialogBuilder(context)
+            .setTitle("Oops!")
+            .setMessage("there is no such a word!")
+            .show()
     }
 
     private fun initView() {

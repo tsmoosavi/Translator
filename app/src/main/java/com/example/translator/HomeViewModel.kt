@@ -16,41 +16,14 @@ class HomeViewModel(app:Application):AndroidViewModel(app) {
         wordCountLD = repo.getNumber()
     }
 
-    fun checkWordExistence(word:String):Boolean{
+    fun checkWordExistence (word: String):Boolean{
         if (repo.findWord(word) == null){
-            return false
-        }
-        if (repo.findMeaningWord(word) == null){
-            return false
-        }
-        return true
-
-    }
-    fun findWord(word:String):WordEntity{
-        if (repo.findWord(word) == null){
-            return repo.findMeaningWord(word)
-        }
-
-        if (repo.findMeaningWord(word) == null){
-            return repo.findWord(word)
-        }
-        return WordEntity(0,"","","","","")
-    }
-
-    fun find(word: String):WordEntity{
-        if (repo.findWord(word) != null){
-            return repo.findWord(word)
-        }
-        return WordEntity(0,"","","","","")
-    }
-    fun resultExist(word: String):Boolean{
-        if (repo.result(word) == null){
             return false
         }
         return true
     }
-    fun result(word: String):WordEntity{
-            return repo.result(word)
+    fun findWord(word: String):WordEntity{
+            return repo.findWord(word)
     }
 
 

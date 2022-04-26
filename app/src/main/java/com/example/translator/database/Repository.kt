@@ -19,10 +19,4 @@ class Repository {
     fun findWord(word:String):WordEntity{
         return db!!.wordDao().getWord(word)
     }
-    fun findMeaningWord(word:String):WordEntity{
-        return db!!.wordDao().getMeaningOfWord(word)
-    }
-    fun result(word:String):WordEntity{
-        return db!!.wordDao().getResult(word)
-    }
 }

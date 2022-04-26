@@ -14,14 +14,15 @@ interface DaoOfWord {
     @Update
     fun edit(word: WordEntity)
 
-    @Query ("SELECT * FROM WordEntity WHERE word = :word")
-    fun getWord(word: String): WordEntity
-
-    @Query ("SELECT * FROM WordEntity WHERE meaningOfWord = :word")
-    fun getMeaningOfWord(word: String): WordEntity
+//    @Query ("SELECT * FROM WordEntity WHERE word = :word")
+//    fun getWord(word: String): WordEntity
+//
+//    @Query ("SELECT * FROM WordEntity WHERE meaningOfWord = :word")
+//    fun getMeaningOfWord(word: String): WordEntity
 
     @Query("SELECT COUNT(id) FROM WordEntity")
     fun countNumber():LiveData<Int>
+
     @Query("SELECT * FROM WordEntity WHERE word= :word or meaningOfWord= :word")
-    fun getResult(word:String):WordEntity
+    fun getWord(word:String):WordEntity
 }
