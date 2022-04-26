@@ -22,4 +22,7 @@ class Repository {
     fun getId(id:Int):WordEntity{
         return db!!.wordDao().findId(id)
     }
+    fun delete(word:WordEntity){
+        db!!.wordDao().delete(word)
+    }
 }

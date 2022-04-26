@@ -136,6 +136,7 @@
             app:strokeColor="@color/pink"
             android:textSize="18sp"
             app:cornerRadius="20dp"
+            android:textColor="@color/black"
             style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
 

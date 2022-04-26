@@ -13,4 +13,7 @@ class ShowVm(app: Application): AndroidViewModel(app)  {
     fun findId(id: Int):WordEntity{
         return repo.getId(id)
     }
+    fun delete(word:WordEntity){
+        repo.delete(word)
+    }
 }
