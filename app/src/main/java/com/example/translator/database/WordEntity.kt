@@ -9,6 +9,5 @@ data class WordEntity (
     val word: String,
     val meaningOfWord: String,
     val example: String,
-    val synonym: String,
-    val url: String
+    val synonym: String
 )

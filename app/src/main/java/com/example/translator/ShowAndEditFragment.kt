@@ -66,8 +66,7 @@ class ShowAndEditFragment : Fragment() {
         var meaning = binding.editedMeaningOfWord.text.toString()
         var example = binding.editedExample.text.toString()
         var syn = binding.editedSynonym.text.toString()
-        var link =  binding.editedUrl.text.toString()
-        vm.edit(WordEntity(id,word,meaning,example,syn,link))
+        vm.edit(WordEntity(id,word,meaning,example,syn))
         Toast.makeText(context, "edited", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_showAndEditFragment_to_homeFragment)
     }
@@ -79,7 +78,6 @@ class ShowAndEditFragment : Fragment() {
         binding.editedMeaningOfWord.setText(word.meaningOfWord)
         binding.editedExample.setText(word.example)
         binding.editedSynonym.setText(word.synonym)
-        binding.editedUrl.setText(word.url)
 
     }
 
@@ -96,7 +94,6 @@ class ShowAndEditFragment : Fragment() {
         binding.meaningOfWord.text = word.meaningOfWord
         binding.example.text = word.example
         binding.synonym.text = word.synonym
-        binding.url.text = word.url
     }
 
 

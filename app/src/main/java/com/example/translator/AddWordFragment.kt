@@ -20,7 +20,6 @@ class AddWordFragment : Fragment() {
     var meaningOfWord = ""
     var exampleOfWord = ""
     var synonym = ""
-    var link = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -48,9 +47,9 @@ class AddWordFragment : Fragment() {
             meaningOfWord = binding.meaningOfWord.text.toString()
             exampleOfWord = binding.example.text.toString()
             synonym = binding.synonym.text.toString()
-            link = binding.url.text.toString()
 
-            vm.addWord(WordEntity(0,word,meaningOfWord,exampleOfWord,synonym,link))
+
+            vm.addWord(WordEntity(0,word,meaningOfWord,exampleOfWord,synonym))
         Toast.makeText(context, "this word added to dictionary", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_addWordFragment_to_homeFragment)
     }
