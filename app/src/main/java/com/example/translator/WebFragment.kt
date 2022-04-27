@@ -36,6 +36,15 @@ class WebFragment : Fragment() {
 //        }
 //        return super.onKeyDown(keyCode, event)
 //    }
+//
+//    override fun onBackPressed() {
+//        if (binding.webView.canGoBack()){
+//            binding.webView.goBack()
+//        }
+//        else
+//            super.onBackPressed()
+//    }
+
 
 
 }
