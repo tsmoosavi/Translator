@@ -1,4 +1,4 @@
-package com.example.translator
+package com.example.translator.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.translator.R
 import com.example.translator.database.WordEntity
 import com.example.translator.databinding.FragmentAddWordBinding
 import com.example.translator.viewModel.AddWordViewModel
@@ -30,7 +31,7 @@ class AddWordFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_add_word,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_word,container,false)
         return binding.root
     }
 

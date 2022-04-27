@@ -1,14 +1,13 @@
 package com.example.translator
 
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -18,10 +17,8 @@ import com.example.translator.viewModel.ShowVm
 
 class ShowAndEditFragment : Fragment() {
      lateinit var binding: FragmentShowAndEditBinding
-     val vm: ShowVm by viewModels()
+     val vm: ShowVm by  activityViewModels()
      val args : ShowAndEditFragmentArgs by navArgs()
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -52,7 +49,8 @@ class ShowAndEditFragment : Fragment() {
         }
 
         binding.linkLL.setOnClickListener {
-          findNavController().navigate(R.id.action_showAndEditFragment_to_webFragment)
+            var action = ShowAndEditFragmentDirections.actionShowAndEditFragmentToWebFragment(args.id)
+          findNavController().navigate(action)
         }
     }
 

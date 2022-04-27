@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.translator.HomeFragment"
+        android:name="com.example.translator.fragments.HomeFragment"
+        tools:layout="@layout/fragment_home"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_addWordFragment"
@@ -17,7 +19,8 @@
     </fragment>
     <fragment
         android:id="@+id/addWordFragment"
-        android:name="com.example.translator.AddWordFragment"
+        android:name="com.example.translator.fragments.AddWordFragment"
+        tools:layout="@layout/fragment_add_word"
         android:label="AddWordFragment" >
         <action
             android:id="@+id/action_addWordFragment_to_homeFragment"
@@ -26,6 +29,7 @@
     <fragment
         android:id="@+id/showAndEditFragment"
         android:name="com.example.translator.ShowAndEditFragment"
+        tools:layout="@layout/fragment_show_and_edit"
         android:label="ShowAndEditFragment" >
         <argument
             android:name="id"
@@ -39,6 +43,11 @@
     </fragment>
     <fragment
         android:id="@+id/webFragment"
-        android:name="com.example.translator.WebFragment"
-        android:label="WebFragment" />
+       android:name="com.example.translator.WebFragment"
+        tools:layout="@layout/fragment_web"
+        android:label="WebFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

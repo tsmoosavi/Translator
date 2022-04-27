@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         binding.splashScreen.animate().setDuration(6000).alpha(1f).withEndAction{
             binding.homeFragment.visibility = View.VISIBLE
             binding.splashScreen.visibility = View.GONE
-            overridePendingTransition(android.R.anim.slide_out_right,android.R.anim.fade_out)
+//            overridePendingTransition(android.R.anim.slide_out_right,android.R.anim.fade_out)
             supportActionBar?.show()
         }
     }

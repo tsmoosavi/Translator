@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ShowAndEditFragment"
+        tools:context=".fragments.ShowAndEditFragment"
         android:orientation="vertical"
         android:padding="20dp">
         <LinearLayout
