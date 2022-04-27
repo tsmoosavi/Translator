@@ -8,10 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.navArgs
 import com.example.translator.databinding.FragmentWebBinding
+import com.example.translator.viewModel.ShowVm
 
 class WebFragment : Fragment() {
     lateinit var binding: FragmentWebBinding
+    val vm : ShowVm by activityViewModels()
+    val args :WebFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -25,7 +30,8 @@ class WebFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.webView.loadUrl("https://en.wikipedia.org/wiki/Hello")
+        var word = vm.findId(args.id).word
+        binding.webView.loadUrl("https://en.wikipedia.org/wiki/$word")
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.webViewClient = WebViewClient()
     }

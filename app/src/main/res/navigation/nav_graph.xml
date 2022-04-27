@@ -40,5 +40,9 @@
     <fragment
         android:id="@+id/webFragment"
         android:name="com.example.translator.WebFragment"
-        android:label="WebFragment" />
+        android:label="WebFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
