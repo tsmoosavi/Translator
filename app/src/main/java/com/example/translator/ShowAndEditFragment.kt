@@ -1,15 +1,18 @@
 package com.example.translator
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.translator.database.WordEntity
 import com.example.translator.databinding.FragmentShowAndEditBinding
 import com.example.translator.viewModel.ShowVm
 
@@ -35,9 +38,47 @@ class ShowAndEditFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initView()
+
         binding.delete.setOnClickListener{
             deleteWord()
         }
+
+        binding.edit.setOnClickListener {
+            edit()
+        }
+
+        binding.registerEdition.setOnClickListener {
+            registerEdit()
+        }
+
+        binding.linkLL.setOnClickListener {
+          findNavController().navigate(R.id.action_showAndEditFragment_to_webFragment)
+        }
+    }
+
+
+
+    private fun registerEdit() {
+        var id = args.id
+        var word = binding.editedWord.text.toString()
+        var meaning = binding.editedMeaningOfWord.text.toString()
+        var example = binding.editedExample.text.toString()
+        var syn = binding.editedSynonym.text.toString()
+        var link =  binding.editedUrl.text.toString()
+        vm.edit(WordEntity(id,word,meaning,example,syn,link))
+        Toast.makeText(context, "edited", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_showAndEditFragment_to_homeFragment)
+    }
+
+    private fun edit() {
+        var word = vm.findId(args.id)
+        binding.editLL.visibility = View.VISIBLE
+        binding.editedWord.setText(word.word)
+        binding.editedMeaningOfWord.setText(word.meaningOfWord)
+        binding.editedExample.setText(word.example)
+        binding.editedSynonym.setText(word.synonym)
+        binding.editedUrl.setText(word.url)
+
     }
 
     private fun deleteWord() {
@@ -55,4 +96,10 @@ class ShowAndEditFragment : Fragment() {
         binding.synonym.text = word.synonym
         binding.url.text = word.url
     }
+
+
+
+
+
+
 }

@@ -100,6 +100,7 @@
                 android:background="@drawable/pink"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linkLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -149,6 +150,7 @@
             android:orientation="vertical"
             android:visibility="gone">
 
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -163,7 +165,7 @@
                 android:orientation="horizontal"
                 android:weightSum="100"
                 android:layout_marginTop="30dp">
-                <TextView
+                <EditText
                     android:id="@+id/editedWord"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -185,8 +187,8 @@
                 android:orientation="horizontal"
                 android:weightSum="100"
                 android:layout_marginTop="30dp">
-                <TextView
-                    android:id="@+id/EditedMeaningOfWord"
+                <EditText
+                    android:id="@+id/editedMeaningOfWord"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
@@ -207,7 +209,7 @@
                 android:orientation="horizontal"
                 android:weightSum="100"
                 android:layout_marginTop="30dp">
-                <TextView
+                <EditText
                     android:id="@+id/editedExample"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -229,7 +231,7 @@
                 android:orientation="horizontal"
                 android:weightSum="100"
                 android:layout_marginTop="30dp">
-                <TextView
+                <EditText
                     android:id="@+id/editedSynonym"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -251,7 +253,7 @@
                 android:orientation="horizontal"
                 android:weightSum="100"
                 android:layout_marginTop="30dp">
-                <TextView
+                <EditText
                     android:id="@+id/editedUrl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

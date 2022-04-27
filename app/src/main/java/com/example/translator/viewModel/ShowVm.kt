@@ -16,4 +16,7 @@ class ShowVm(app: Application): AndroidViewModel(app)  {
     fun delete(word:WordEntity){
         repo.delete(word)
     }
+    fun edit(word: WordEntity){
+        repo.editWord(word)
+    }
 }

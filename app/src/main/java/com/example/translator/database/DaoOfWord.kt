@@ -14,6 +14,7 @@ interface DaoOfWord {
     @Update
     fun edit(word: WordEntity)
 
+
 //    @Query ("SELECT * FROM WordEntity WHERE word = :word")
 //    fun getWord(word: String): WordEntity
 //
