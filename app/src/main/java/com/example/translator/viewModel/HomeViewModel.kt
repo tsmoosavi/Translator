@@ -9,11 +9,13 @@ import com.example.translator.database.WordEntity
 
 class HomeViewModel(app:Application):AndroidViewModel(app) {
    var wordCountLD: LiveData<Int>
+   var wordListLD : LiveData<List<WordEntity>>
 
     val repo = Repository()
     init {
         repo.startDb(app.applicationContext)
         wordCountLD = repo.getNumber()
+        wordListLD = repo.getList()
     }
 
     fun checkWordExistence (word: String):Boolean{

@@ -25,7 +25,10 @@ class Repository {
     fun delete(word:WordEntity){
         db!!.wordDao().delete(word)
     }
-    fun editWord(word: WordEntity){
+    fun editWord(word:   WordEntity){
         db!!.wordDao().edit(word)
+    }
+    fun getList():LiveData<List<WordEntity>>{
+         return db!!.wordDao().getList()
     }
 }

@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.translator.R
+import com.example.translator.WordRecyclerAdapter
 import com.example.translator.databinding.FragmentHomeBinding
 import com.example.translator.viewModel.HomeViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -39,6 +40,8 @@ class HomeFragment : Fragment() {
         binding.searchButton.setOnClickListener {
             showWord()
         }
+
+
     }
 
     private fun showWord() {
@@ -62,6 +65,17 @@ class HomeFragment : Fragment() {
     private fun initView() {
         vm.wordCountLD.observe(viewLifecycleOwner){number ->
             binding.number.text = number.toString()
+        }
+
+        vm.wordListLD.observe(viewLifecycleOwner){
+            if (it != null){
+                var adapter = WordRecyclerAdapter{
+                    var action =HomeFragmentDirections.actionHomeFragmentToShowAndEditFragment(it)
+                    findNavController().navigate(action)
+                }
+                binding.recyclerView.adapter = adapter
+                adapter.submitList(it)
+            }
         }
     }
 }
