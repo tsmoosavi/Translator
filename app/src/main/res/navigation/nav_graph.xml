@@ -47,7 +47,7 @@
         tools:layout="@layout/fragment_web"
         android:label="WebFragment" >
         <argument
-            android:name="id"
-            app:argType="integer" />
+            android:name="searchWord"
+            app:argType="com.example.translator.database.WordEntity" />
     </fragment>
 </navigation>
