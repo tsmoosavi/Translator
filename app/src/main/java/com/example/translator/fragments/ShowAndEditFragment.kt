@@ -57,13 +57,13 @@ class ShowAndEditFragment : Fragment() {
 
 
     private fun registerEdit() {
-        var id = args.id
+        var searchWord = args.searchWord
         var word = binding.editedWord.text.toString()
         var meaning = binding.editedMeaningOfWord.text.toString()
         var example = binding.editedExample.text.toString()
         var syn = binding.editedSynonym.text.toString()
         var link =  binding.editedUrl.text.toString()
-        vm.edit(WordEntity(id,word,meaning,example,syn,link))
+        vm.edit(WordEntity(searchWord.id,word,meaning,example,syn,link))
         Toast.makeText(context, "edited", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_showAndEditFragment_to_homeFragment)
     }
