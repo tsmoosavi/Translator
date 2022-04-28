@@ -15,9 +15,9 @@ interface DaoOfWord {
     fun edit(word: WordEntity)
 
 
-//    @Query ("SELECT * FROM WordEntity WHERE word = :word")
-//    fun getWord(word: String): WordEntity
-//
+    @Query ("SELECT * FROM WordEntity")
+    fun getList(): LiveData<List<WordEntity>>
+
     @Query ("SELECT * FROM WordEntity WHERE id = :id")
     fun findId(id: Int): WordEntity
 
