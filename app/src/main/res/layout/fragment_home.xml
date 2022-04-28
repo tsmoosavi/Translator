@@ -67,11 +67,47 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:background="@drawable/rectangle"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="#6A6869"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/wordList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/wordTitle"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/grey"
+                android:layout_marginEnd="5dp" />
+            <TextView
+                android:id="@+id/meaningList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/meaningTitle"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/pink"
+                android:layout_marginEnd="5dp" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/grey"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
 
     </LinearLayout>
   
