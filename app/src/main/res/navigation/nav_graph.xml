@@ -31,15 +31,15 @@
         android:name="com.example.translator.ShowAndEditFragment"
         tools:layout="@layout/fragment_show_and_edit"
         android:label="ShowAndEditFragment" >
-        <argument
-            android:name="id"
-            app:argType="integer" />
         <action
             android:id="@+id/action_showAndEditFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
         <action
             android:id="@+id/action_showAndEditFragment_to_webFragment"
             app:destination="@id/webFragment" />
+        <argument
+            android:name="searchWord"
+            app:argType="com.example.translator.database.WordEntity" />
     </fragment>
     <fragment
         android:id="@+id/webFragment"
@@ -47,7 +47,7 @@
         tools:layout="@layout/fragment_web"
         android:label="WebFragment" >
         <argument
-            android:name="searchWord"
-            app:argType="com.example.translator.database.WordEntity" />
+            android:name="wikiPediaLink"
+            app:argType="string" />
     </fragment>
 </navigation>

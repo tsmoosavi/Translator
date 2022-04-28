@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
     private fun showWord() {
         if (vm.checkWordExistence(binding.searchBox.text.toString())){
 //            Toast.makeText(context, vm.findWord(binding.searchBox.text.toString()).id.toString(), Toast.LENGTH_SHORT).show()
-            var action =HomeFragmentDirections.actionHomeFragmentToShowAndEditFragment( vm.findWord(binding.searchBox.text.toString()).id)
+            var action =HomeFragmentDirections.actionHomeFragmentToShowAndEditFragment( vm.findWord(binding.searchBox.text.toString()))
             findNavController().navigate(action)
         }
         else{

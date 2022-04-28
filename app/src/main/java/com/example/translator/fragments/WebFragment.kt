@@ -27,8 +27,8 @@ class WebFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var word = vm.findId(args.id)
-        binding.webView.loadUrl(word.url)
+        var link = args.wikiPediaLink
+        binding.webView.loadUrl(link)
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.webViewClient = WebViewClient()
 

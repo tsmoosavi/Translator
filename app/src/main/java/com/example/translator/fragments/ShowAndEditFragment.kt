@@ -49,7 +49,7 @@ class ShowAndEditFragment : Fragment() {
         }
 
         binding.linkLL.setOnClickListener {
-            var action = ShowAndEditFragmentDirections.actionShowAndEditFragmentToWebFragment(args.id)
+            var action = ShowAndEditFragmentDirections.actionShowAndEditFragmentToWebFragment(args.searchWord.url)
           findNavController().navigate(action)
         }
     }
@@ -69,30 +69,30 @@ class ShowAndEditFragment : Fragment() {
     }
 
     private fun edit() {
-        var word = vm.findId(args.id)
+        var searchWord = args.searchWord
         binding.editLL.visibility = View.VISIBLE
-        binding.editedWord.setText(word.word)
-        binding.editedMeaningOfWord.setText(word.meaningOfWord)
-        binding.editedExample.setText(word.example)
-        binding.editedSynonym.setText(word.synonym)
-        binding.editedUrl.setText(word.url)
+        binding.editedWord.setText( searchWord.word)
+        binding.editedMeaningOfWord.setText( searchWord.meaningOfWord)
+        binding.editedExample.setText( searchWord.example)
+        binding.editedSynonym.setText( searchWord.synonym)
+        binding.editedUrl.setText( searchWord.url)
 
     }
 
     private fun deleteWord() {
-        var word = vm.findId(args.id)
-        vm.delete(word)
+        var searchWord = args.searchWord
+        vm.delete( searchWord)
         Toast.makeText(context, "this word deleted!", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_showAndEditFragment_to_homeFragment)
     }
 
     private fun initView() {
-        var word = vm.findId(args.id)
-        binding.word.text = word.word
-        binding.meaningOfWord.text = word.meaningOfWord
-        binding.example.text = word.example
-        binding.synonym.text = word.synonym
-        binding.url.text = word.url
+        var searchWord = args.searchWord
+        binding.word.text =  searchWord.word
+        binding.meaningOfWord.text =  searchWord.meaningOfWord
+        binding.example.text =  searchWord.example
+        binding.synonym.text =  searchWord.synonym
+        binding.url.text =  searchWord.url
     }
 
 
