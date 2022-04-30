@@ -10,7 +10,8 @@
         android:layout_height="match_parent"
         tools:context=".fragments.ShowAndEditFragment"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+       >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -122,13 +123,27 @@
                 android:layout_weight="70"
                 android:background="@drawable/pink"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
         <View
             android:id="@+id/favorite"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:background="@drawable/ic_baseline_favorite_border_24" />
+
+            <Button
+                android:id="@+id/play"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/ic_baseline_play_arrow_24" />
+
+        </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/edit"
@@ -276,14 +291,37 @@
                     android:layout_weight="70"
                     android:background="@drawable/pink"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
             <View
                 android:id="@+id/addFavorite"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/ic_baseline_favorite_border_24" />
+                <Button
+                    android:id="@+id/record"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/ic_baseline_mic_24" />
 
+                <Button
+                    android:id="@+id/stop"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/ic_baseline_stop_24" />
+
+
+            </LinearLayout>
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/registerEdition"
                 android:layout_width="match_parent"

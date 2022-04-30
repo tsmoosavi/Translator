@@ -15,5 +15,6 @@ data class WordEntity (
     val example: String,
     val synonym: String,
     val url: String,
-    var isFavorite: Boolean
+    var isFavorite: Boolean,
+    var recordFileName: String
 ): Parcelable

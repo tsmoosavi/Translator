@@ -1,10 +1,14 @@
 package com.example.translator
 
+import android.media.MediaPlayer
+import android.media.MediaRecorder
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -14,10 +18,14 @@ import androidx.navigation.fragment.navArgs
 import com.example.translator.database.WordEntity
 import com.example.translator.databinding.FragmentShowAndEditBinding
 import com.example.translator.viewModel.ShowVm
+import java.io.IOException
 
 class ShowAndEditFragment : Fragment() {
      lateinit var binding: FragmentShowAndEditBinding
      val vm: ShowVm by  activityViewModels()
+    private var player: MediaPlayer? = null
+    var fileName = ""
+    private var recorder: MediaRecorder? = null
      val args : ShowAndEditFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +68,55 @@ class ShowAndEditFragment : Fragment() {
             }else if (!searchWord.isFavorite){
                 Toast.makeText(context, "remove from favorite", Toast.LENGTH_SHORT).show()
             }
+        }
+        binding.record.setOnClickListener {
+            record()
+        }
+        binding.stop.setOnClickListener {
+            stopRecording()
+        }
+        binding.play.setOnClickListener {
+            playAudio()
+        }
+    }
 
+    private fun stopRecording() {
+        recorder?.apply {
+            stop()
+            release()
+        }
+        recorder = null
+    }
+
+    private fun record() {
+        var name = binding.editedWord.text.toString()
+        fileName = "${requireActivity().externalCacheDir?.absolutePath}/audioRecord$name.3gp"
+        recorder = MediaRecorder().apply {
+            setAudioSource(MediaRecorder.AudioSource.MIC)
+            setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
+            setOutputFile(fileName)
+            setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)
+
+            try {
+                prepare()
+            } catch (e: IOException) {
+                Log.e("recordTest", "prepare() failed")
+            }
+
+            start()
+        }
+    }
+
+    private fun playAudio() {
+        var searchWord = args.searchWord
+        player = MediaPlayer().apply {
+            try {
+                setDataSource(searchWord.recordFileName)
+                prepare()
+                start()
+            } catch (e: IOException) {
+                Log.e("playAudioTest", "prepare() failed")
+            }
         }
     }
 
@@ -85,12 +141,13 @@ class ShowAndEditFragment : Fragment() {
         var example = binding.editedExample.text.toString()
         var syn = binding.editedSynonym.text.toString()
         var link =  binding.editedUrl.text.toString()
+        var fileName = "${requireActivity().externalCacheDir?.absolutePath}/audioRecord$word.3gp"
         if (searchWord.isFavorite){
             Toast.makeText(context, "fav", Toast.LENGTH_SHORT).show()
         }else if (!searchWord.isFavorite){
             Toast.makeText(context, "notfav", Toast.LENGTH_SHORT).show()
         }
-        vm.edit(WordEntity(searchWord.id,word,meaning,example,syn,link,searchWord.isFavorite))
+        vm.edit(WordEntity(searchWord.id,word,meaning,example,syn,link,searchWord.isFavorite,fileName))
         Toast.makeText(context, "edited", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_showAndEditFragment_to_homeFragment)
     }
