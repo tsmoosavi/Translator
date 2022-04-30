@@ -50,8 +50,7 @@ class AddWordFragment : Fragment() {
             exampleOfWord = binding.example.text.toString()
             synonym = binding.synonym.text.toString()
             link = binding.url.text.toString()
-
-            vm.addWord(WordEntity(0,word,meaningOfWord,exampleOfWord,synonym,link))
+            vm.addWord(WordEntity(0,word,meaningOfWord,exampleOfWord,synonym,link,false))
         Toast.makeText(context, "this word added to dictionary", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_addWordFragment_to_homeFragment)
     }

@@ -122,6 +122,13 @@
                 android:layout_weight="70"
                 android:background="@drawable/pink"/>
         </LinearLayout>
+        <Button
+            android:id="@+id/favorite"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_baseline_favorite_border_24" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/edit"
@@ -269,6 +276,14 @@
                     android:layout_weight="70"
                     android:background="@drawable/pink"/>
             </LinearLayout>
+            <Button
+                android:id="@+id/addFavorite"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_baseline_favorite_border_24" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/registerEdition"
                 android:layout_width="match_parent"

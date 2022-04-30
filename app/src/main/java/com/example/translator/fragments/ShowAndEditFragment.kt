@@ -52,8 +52,30 @@ class ShowAndEditFragment : Fragment() {
             var action = ShowAndEditFragmentDirections.actionShowAndEditFragmentToWebFragment(args.searchWord.url)
           findNavController().navigate(action)
         }
+        binding.addFavorite.setOnClickListener {
+            checkFavorite()
+            var searchWord = args.searchWord
+            if (searchWord.isFavorite){
+                Toast.makeText(context, "add to favorite", Toast.LENGTH_SHORT).show()
+            }else if (!searchWord.isFavorite){
+                Toast.makeText(context, "remove from favorite", Toast.LENGTH_SHORT).show()
+            }
+
+        }
     }
 
+    private fun checkFavorite() {
+        var searchWord = args.searchWord
+            searchWord.isFavorite = !searchWord.isFavorite
+            var fav = searchWord.isFavorite
+            if (fav){
+                binding.addFavorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+                binding.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+            } else if (!fav){
+                binding.addFavorite.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
+                binding.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
+            }
+    }
 
 
     private fun registerEdit() {
@@ -63,7 +85,12 @@ class ShowAndEditFragment : Fragment() {
         var example = binding.editedExample.text.toString()
         var syn = binding.editedSynonym.text.toString()
         var link =  binding.editedUrl.text.toString()
-        vm.edit(WordEntity(searchWord.id,word,meaning,example,syn,link))
+        if (searchWord.isFavorite){
+            Toast.makeText(context, "fav", Toast.LENGTH_SHORT).show()
+        }else if (!searchWord.isFavorite){
+            Toast.makeText(context, "notfav", Toast.LENGTH_SHORT).show()
+        }
+        vm.edit(WordEntity(searchWord.id,word,meaning,example,syn,link,searchWord.isFavorite))
         Toast.makeText(context, "edited", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_showAndEditFragment_to_homeFragment)
     }
@@ -93,6 +120,17 @@ class ShowAndEditFragment : Fragment() {
         binding.example.text =  searchWord.example
         binding.synonym.text =  searchWord.synonym
         binding.url.text =  searchWord.url
+        if (searchWord.isFavorite){
+            binding.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+        } else if (!searchWord.isFavorite){
+            binding.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
+        }
+        if (searchWord.isFavorite){
+            binding.addFavorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+        } else if (!searchWord.isFavorite){
+            binding.addFavorite.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
+        }
+
     }
 
 
