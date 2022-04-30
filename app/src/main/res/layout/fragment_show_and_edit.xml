@@ -122,7 +122,7 @@
                 android:layout_weight="70"
                 android:background="@drawable/pink"/>
         </LinearLayout>
-        <Button
+        <View
             android:id="@+id/favorite"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -276,7 +276,7 @@
                     android:layout_weight="70"
                     android:background="@drawable/pink"/>
             </LinearLayout>
-            <Button
+            <View
                 android:id="@+id/addFavorite"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
