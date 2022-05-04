@@ -117,6 +117,10 @@
             android:layout_weight="70"
             android:background="@drawable/pink"/>
     </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle"
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/register"
