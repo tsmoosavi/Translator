@@ -12,7 +12,7 @@ interface DaoOfWord {
     suspend fun delete(word: WordEntity)
 
     @Update
-    fun edit(word: WordEntity)
+    suspend fun edit(word: WordEntity)
 
 
     @Query ("SELECT * FROM WordEntity")

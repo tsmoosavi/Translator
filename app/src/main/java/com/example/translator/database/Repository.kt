@@ -25,7 +25,7 @@ class Repository {
     suspend fun delete(word:WordEntity){
         db!!.wordDao().delete(word)
     }
-    fun editWord(word:   WordEntity){
+    suspend fun editWord(word:   WordEntity){
         db!!.wordDao().edit(word)
     }
     fun getList():LiveData<List<WordEntity>>{

@@ -22,6 +22,8 @@ class ShowVm(app: Application): AndroidViewModel(app)  {
 
     }
     fun edit(word: WordEntity){
-        repo.editWord(word)
+        viewModelScope.launch {
+            repo.editWord(word)
+        }
     }
 }
