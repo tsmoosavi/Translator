@@ -25,5 +25,5 @@ interface DaoOfWord {
     fun countNumber():LiveData<Int>
 
     @Query("SELECT * FROM WordEntity WHERE word= :word or meaningOfWord= :word")
-    fun getWord(word:String):WordEntity
+    suspend fun getWord(word:String):WordEntity
 }

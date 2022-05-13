@@ -16,7 +16,7 @@ class Repository {
     fun insertWord(word:WordEntity){
         db!!.wordDao().addWord(word)
     }
-    fun findWord(word:String):WordEntity{
+    suspend fun findWord(word:String):WordEntity{
         return db!!.wordDao().getWord(word)
     }
     fun getId(id:Int):WordEntity{

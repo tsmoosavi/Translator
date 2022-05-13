@@ -4,8 +4,11 @@ import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.translator.database.Repository
 import com.example.translator.database.WordEntity
+import kotlinx.coroutines.launch
 
 class HomeViewModel(app:Application):AndroidViewModel(app) {
    var wordCountLD: LiveData<Int>
@@ -18,14 +21,23 @@ class HomeViewModel(app:Application):AndroidViewModel(app) {
         wordListLD = repo.getList()
     }
 
-    fun checkWordExistence (word: String):Boolean{
-        if (repo.findWord(word) == null){
-            return false
+    fun checkWordExistence (word: String):LiveData<Boolean>{
+        var isExist = MutableLiveData<Boolean>()
+        viewModelScope.launch {
+            if (repo.findWord(word) == null){
+                var existence =  false
+                isExist.value = existence
+            }
         }
-        return true
+        return isExist
     }
-    fun findWord(word: String):WordEntity{
-            return repo.findWord(word)
+    fun findWord(word: String):LiveData<WordEntity>{
+        var foundWordLD = MutableLiveData<WordEntity>()
+        viewModelScope.launch {
+            var foundWord =  repo.findWord(word)
+            foundWordLD.value = foundWord
+        }
+        return foundWordLD
     }
 
 
