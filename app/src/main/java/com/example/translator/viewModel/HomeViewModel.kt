@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.translator.database.Repository
 import com.example.translator.database.WordEntity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HomeViewModel(app:Application):AndroidViewModel(app) {
@@ -35,7 +36,7 @@ class HomeViewModel(app:Application):AndroidViewModel(app) {
     }
     fun findWord(word: String):LiveData<WordEntity>{
         var foundWordLD = MutableLiveData<WordEntity>()
-        viewModelScope.launch {
+        viewModelScope.launch{
             var foundWord =  repo.findWord(word)
             foundWordLD.value = foundWord
         }

@@ -2,10 +2,14 @@ package com.example.translator.database
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class Repository {
     var db: WordDataBase? = null
     var wordDao: DaoOfWord? = null
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
     fun startDb(context: Context){
         db = WordDataBase.getAppDataBase(context)
         wordDao =db?.wordDao()
@@ -17,7 +21,11 @@ class Repository {
         db!!.wordDao().addWord(word)
     }
     suspend fun findWord(word:String):WordEntity{
-        return db!!.wordDao().getWord(word)
+        var foundWord : WordEntity
+        withContext(ioDispatcher){
+            foundWord =db!!.wordDao().getWord(word)
+        }
+        return foundWord
     }
 //    fun getId(id:Int):WordEntity{
 //        return db!!.wordDao().findId(id)
