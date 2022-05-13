@@ -18,7 +18,10 @@ class Repository {
        return db!!.wordDao().countNumber()
     }
     suspend fun insertWord(word:WordEntity){
-        db!!.wordDao().addWord(word)
+        withContext(ioDispatcher){
+            db!!.wordDao().addWord(word)
+        }
+
     }
     suspend fun findWord(word:String):WordEntity{
         var foundWord : WordEntity
@@ -31,10 +34,13 @@ class Repository {
 //        return db!!.wordDao().findId(id)
 //    }
     suspend fun delete(word:WordEntity){
+        withContext(ioDispatcher){}
         db!!.wordDao().delete(word)
     }
-    suspend fun editWord(word:   WordEntity){
-        db!!.wordDao().edit(word)
+    suspend fun editWord(word:WordEntity){
+        withContext(ioDispatcher) {
+            db!!.wordDao().edit(word)
+        }
     }
     fun getList():LiveData<List<WordEntity>>{
          return db!!.wordDao().getList()
