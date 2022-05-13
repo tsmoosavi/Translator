@@ -18,7 +18,6 @@ abstract class WordDataBase:RoomDatabase() {
                     INSTANCE =
                         Room.databaseBuilder(context.applicationContext,
                             WordDataBase::class.java, "myDB",)
-                            .allowMainThreadQueries()
                             .build()
                 }
             }
