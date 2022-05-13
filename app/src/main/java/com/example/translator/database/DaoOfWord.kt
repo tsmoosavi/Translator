@@ -9,7 +9,7 @@ interface DaoOfWord {
     suspend fun addWord(word: WordEntity)
 
     @Delete
-    fun delete(word: WordEntity)
+    suspend fun delete(word: WordEntity)
 
     @Update
     fun edit(word: WordEntity)
