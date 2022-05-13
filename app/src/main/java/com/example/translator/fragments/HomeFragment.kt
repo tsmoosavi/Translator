@@ -45,10 +45,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun showWord() {
-        vm.checkWordExistence(binding.searchBox.text.toString()).observe(viewLifecycleOwner){
-            if (it){
-                vm.findWord(binding.searchBox.text.toString()).observe(viewLifecycleOwner){
-                    var action =HomeFragmentDirections.actionHomeFragmentToShowAndEditFragment(it)
+        vm.checkWordExistence(binding.searchBox.text.toString()).observe(viewLifecycleOwner){ existence ->
+            if (existence){
+                vm.findWord(binding.searchBox.text.toString()).observe(viewLifecycleOwner){word ->
+                    var action =HomeFragmentDirections.actionHomeFragmentToShowAndEditFragment(word)
                     findNavController().navigate(action)
                 }
             }

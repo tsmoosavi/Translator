@@ -27,6 +27,8 @@ class HomeViewModel(app:Application):AndroidViewModel(app) {
             if (repo.findWord(word) == null){
                 var existence =  false
                 isExist.value = existence
+            }else{
+                isExist.value = true
             }
         }
         return isExist
