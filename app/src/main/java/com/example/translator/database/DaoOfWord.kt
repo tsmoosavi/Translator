@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface DaoOfWord {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addWord(word: WordEntity)
+    suspend fun addWord(word: WordEntity)
 
     @Delete
     fun delete(word: WordEntity)
@@ -18,8 +18,8 @@ interface DaoOfWord {
     @Query ("SELECT * FROM WordEntity")
     fun getList(): LiveData<List<WordEntity>>
 
-    @Query ("SELECT * FROM WordEntity WHERE id = :id")
-    fun findId(id: Int): WordEntity
+//    @Query ("SELECT * FROM WordEntity WHERE id = :id")
+//    fun findId(id: Int): WordEntity
 
     @Query("SELECT COUNT(id) FROM WordEntity")
     fun countNumber():LiveData<Int>

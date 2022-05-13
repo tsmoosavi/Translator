@@ -10,9 +10,9 @@ class ShowVm(app: Application): AndroidViewModel(app)  {
     init {
         repo.startDb(app.applicationContext)
     }
-    fun findId(id: Int):WordEntity{
-        return repo.getId(id)
-    }
+//    fun findId(id: Int):WordEntity{
+//        return repo.getId(id)
+//    }
     fun delete(word:WordEntity){
         repo.delete(word)
     }

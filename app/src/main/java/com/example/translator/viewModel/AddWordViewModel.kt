@@ -2,8 +2,10 @@ package com.example.translator.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.translator.database.Repository
 import com.example.translator.database.WordEntity
+import kotlinx.coroutines.launch
 
 class AddWordViewModel(app:Application):AndroidViewModel(app) {
 
@@ -13,6 +15,8 @@ class AddWordViewModel(app:Application):AndroidViewModel(app) {
         repo.startDb(app.applicationContext)
     }
     fun addWord(word: WordEntity){
-        repo.insertWord(word)
+        viewModelScope.launch {
+            repo.insertWord(word)
+        }
     }
 }

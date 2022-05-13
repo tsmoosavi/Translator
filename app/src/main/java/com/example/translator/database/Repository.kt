@@ -13,15 +13,15 @@ class Repository {
     fun getNumber():LiveData<Int>{
        return db!!.wordDao().countNumber()
     }
-    fun insertWord(word:WordEntity){
+    suspend fun insertWord(word:WordEntity){
         db!!.wordDao().addWord(word)
     }
     suspend fun findWord(word:String):WordEntity{
         return db!!.wordDao().getWord(word)
     }
-    fun getId(id:Int):WordEntity{
-        return db!!.wordDao().findId(id)
-    }
+//    fun getId(id:Int):WordEntity{
+//        return db!!.wordDao().findId(id)
+//    }
     fun delete(word:WordEntity){
         db!!.wordDao().delete(word)
     }
